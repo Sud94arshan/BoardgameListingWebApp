@@ -1,40 +1,37 @@
 pipeline {
     agent any
-    
     tools {
-        jdk 'jdk11'
-        maven 'maven3'
+        jdk "jdk11"
+        maven "maven3"
     }
 
     stages {
         stage('Git Checkout') {
             steps {
-                git 'https://github.com/jaiswaladi2468/BoardgameListingWebApp.git'
+                git 'https://github.com/Sud94arshan/BoardgameListingWebApp.git'
             }
         }
-        
-        stage('Compile') {
+    stage('Compile') {
             steps {
-               sh "mvn compile"
+                sh "mvn compile" 
             }
         }
-        
-        stage('Test') {
+    stage('Test') {
             steps {
                 sh "mvn test"
             }
         }
-        
-        stage('Package') {
+    stage('Package') {
             steps {
                 sh "mvn package"
             }
         }
-        
-        stage('Install') {
+    stage('Install') {
             steps {
                 sh "mvn install"
             }
         }
+
     }
 }
+
